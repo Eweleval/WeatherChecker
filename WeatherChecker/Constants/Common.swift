@@ -36,3 +36,23 @@ struct Units {
     static let celcius: String = "metric"
     static let fahrenheit: String = "imperial"
 }
+
+//MARK: - Date formatting
+struct DateFormatting {
+    static let shared = DateFormatting()
+
+    func convertDate(_ date: String?) -> String {
+        var fixDate = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        if let originalDate = date {
+            if let newDate = dateFormatter.date(from: originalDate) {
+                dateFormatter.dateFormat = "EEEE"
+                fixDate = dateFormatter.string(from: newDate)
+            }
+        }
+        return fixDate
+    }
+}
