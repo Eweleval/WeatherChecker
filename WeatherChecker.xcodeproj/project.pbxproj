@@ -84,8 +84,6 @@
 				B430F38A286B464000B34BE6 /* View Models */,
 				B430F388286B460900B34BE6 /* Controller */,
 				B430F38C286B469600B34BE6 /* Resources */,
-				B430F37E286B3E0D00B34BE6 /* LaunchScreen.storyboard */,
-				B430F381286B3E0D00B34BE6 /* Info.plist */,
 			);
 			path = WeatherChecker;
 			sourceTree = "<group>";
@@ -93,6 +91,7 @@
 		B430F387286B45DC00B34BE6 /* Application Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				B430F381286B3E0D00B34BE6 /* Info.plist */,
 				B430F373286B3E0C00B34BE6 /* AppDelegate.swift */,
 				B430F375286B3E0C00B34BE6 /* SceneDelegate.swift */,
 			);
@@ -111,6 +110,7 @@
 		B430F389286B461F00B34BE6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B430F37E286B3E0D00B34BE6 /* LaunchScreen.storyboard */,
 				B430F379286B3E0C00B34BE6 /* Main.storyboard */,
 			);
 			path = View;
@@ -401,7 +401,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L5944LH5MU;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChecker/Info.plist;
+				INFOPLIST_FILE = "WeatherChecker/Application Delegates/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -429,7 +429,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = L5944LH5MU;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WeatherChecker/Info.plist;
+				INFOPLIST_FILE = "WeatherChecker/Application Delegates/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
