@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherChecker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="WeatherChecker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,6 +241,29 @@
                             <constraint firstItem="dTG-eL-XnF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tmG-8z-G4a"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="condition" destination="fow-Nl-a5U" id="zgm-o2-D1m"/>
+                        <outlet property="currentTemp" destination="tAt-z0-OZc" id="7e4-Dg-IRK"/>
+                        <outlet property="currentWeatherImage" destination="dTG-eL-XnF" id="T7F-tH-Sfg"/>
+                        <outlet property="dayFive" destination="mHC-hB-bWc" id="Zk9-Lv-N7k"/>
+                        <outlet property="dayFiveCondition" destination="DML-7e-KoC" id="bfh-Ta-tRv"/>
+                        <outlet property="dayFiveTemp" destination="Mhc-cL-f7j" id="s76-gd-wWE"/>
+                        <outlet property="dayFour" destination="RE9-Rl-wGo" id="4vn-89-I8U"/>
+                        <outlet property="dayFourCondition" destination="pYE-UG-aMm" id="1wi-PZ-13F"/>
+                        <outlet property="dayFourTemp" destination="Xzr-ZG-ipM" id="t1J-W9-HIm"/>
+                        <outlet property="dayOne" destination="CC8-qT-Z9A" id="EGO-Jp-TjH"/>
+                        <outlet property="dayOneCondition" destination="qyh-vO-bN0" id="n9K-Ib-29b"/>
+                        <outlet property="dayOneTemp" destination="alk-eO-IfH" id="z6b-kn-q5Q"/>
+                        <outlet property="dayThree" destination="pwt-BW-fT6" id="YLN-K8-lun"/>
+                        <outlet property="dayThreeCondition" destination="Jfg-ms-51k" id="Tc7-e4-iX7"/>
+                        <outlet property="dayThreeTemp" destination="ehI-wE-oPi" id="Y4J-7S-Xg5"/>
+                        <outlet property="dayTwo" destination="4ja-z2-Icw" id="vxF-r6-eLz"/>
+                        <outlet property="dayTwoCondition" destination="j8I-Og-agI" id="Ry5-UA-q5u"/>
+                        <outlet property="dayTwoTemp" destination="0RG-ZV-9C5" id="AA4-pD-3bw"/>
+                        <outlet property="maximumTemp" destination="D0o-TB-7Ea" id="QOE-WE-TYt"/>
+                        <outlet property="minimumTemp" destination="Wji-L4-rsg" id="AcX-dh-Niy"/>
+                        <outlet property="temperature" destination="mp7-4e-Zbk" id="cgt-DZ-kpS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
