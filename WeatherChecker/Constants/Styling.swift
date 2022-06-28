@@ -29,26 +29,26 @@ enum Styling {
     var weatherImage: UIImage {
         switch self {
         case .rainy:
-            return UIImage(named: "Rainy")!
+            return UIImage(named: "Rainy") ?? UIImage()
         case .cloudy:
-            return UIImage(named: "Cloudy")!
+            return UIImage(named: "Cloudy") ?? UIImage()
         case .sunny:
-            return UIImage(named: "Sunny")!
+            return UIImage(named: "Sunny") ?? UIImage()
         case .others:
-            return UIImage(named: "default")!
+            return UIImage(named: "default") ?? UIImage()
         }
     }
     //MARK: - Style code for icons according to weather description
     var forecastIcon: UIImage {
         switch self{
         case .rainy:
-            return UIImage(named: "Rain")!
+            return UIImage(named: "Rain") ?? UIImage()
         case .cloudy:
-            return UIImage(named: "PartlySunny")!
+            return UIImage(named: "PartlySunny") ?? UIImage()
         case .sunny:
-            return UIImage(named: "Clear")!
+            return UIImage(named: "Clear") ?? UIImage()
         case .others:
-            return UIImage(named: "Clear")!
+            return UIImage(named: "Clear") ?? UIImage()
         }
     }
 }
