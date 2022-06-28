@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cloudy" translatesAutoresizingMaskIntoConstraints="NO" id="dTG-eL-XnF">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sunny" translatesAutoresizingMaskIntoConstraints="NO" id="dTG-eL-XnF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="350" id="M4H-fU-lvi"/>
@@ -270,9 +270,9 @@
     </scenes>
     <resources>
         <image name="Clear" width="13" height="13"/>
-        <image name="Cloudy" width="360" height="320"/>
         <image name="PartlySunny" width="13" height="13"/>
         <image name="Rain" width="13" height="13"/>
+        <image name="Sunny" width="360" height="320"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
