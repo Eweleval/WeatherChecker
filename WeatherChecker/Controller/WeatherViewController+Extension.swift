@@ -11,6 +11,28 @@ import UIKit
 extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
     func receiveData(_ data: CurrentWeatherModel) {
         self.currentData = data
+
+        currentTemp.text = "\(Int(currentData?.main.temp ?? 0.0))°"
+        condition.text = currentData?.weather[0].main
+        minimumTemp.text = "\(Int(currentData?.main.tempMin ?? 0.0))°"
+        temperature.text = "\(Int(currentData?.main.temp ?? 0.0))°"
+        maximumTemp.text = "\(Int(currentData?.main.tempMax ?? 0.0))°"
+
+        switch currentData?.weather[0].main {
+        case "Clouds":
+            condition.text = "CLOUDY"
+            currentWeatherImage.image = Styling.cloudy.weatherImage
+            view.backgroundColor = Styling.cloudy.color
+        case "Rain":
+            condition.text = "RAINY"
+            currentWeatherImage.image = Styling.rainy.weatherImage
+            view.backgroundColor = Styling.rainy.color
+        case "Clear":
+            condition.text = "SUNNY"
+            currentWeatherImage.image = Styling.sunny.weatherImage
+            view.backgroundColor = Styling.sunny.color
+        default: break
+        }
     }
     
     func receiveData(_ data: ForecastWeatherModel) {
@@ -30,57 +52,57 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
         
         switch forecastData?.list[1].weather[0].main {
         case .some(.clouds):
-            dayOneCondition.image = UIImage(named: "PartlySunny")
+            dayOneCondition.image = Styling.cloudy.forecastIcon
         case .none:
-            dayOneCondition.image = UIImage(named: "Clear")
+            dayOneCondition.image = Styling.others.forecastIcon
         case .some(.rain):
-            dayOneCondition.image = UIImage(named: "Rain")
+            dayOneCondition.image = Styling.rainy.forecastIcon
         case .some(.clear):
-            dayOneCondition.image = UIImage(named: "Clear")
+            dayOneCondition.image = Styling.sunny.forecastIcon
         }
 
         switch forecastData?.list[9].weather[0].main {
         case .some(.clouds):
-            dayTwoCondition.image = UIImage(named: "PartlySunny")
+            dayTwoCondition.image = Styling.cloudy.forecastIcon
         case .none:
-            dayTwoCondition.image = UIImage(named: "Clear")
+            dayTwoCondition.image = Styling.others.forecastIcon
         case .some(.rain):
-            dayTwoCondition.image = UIImage(named: "Rain")
+            dayTwoCondition.image = Styling.rainy.forecastIcon
         case .some(.clear):
-            dayTwoCondition.image = UIImage(named: "Clear")
+            dayTwoCondition.image = Styling.sunny.forecastIcon
         }
 
         switch forecastData?.list[17].weather[0].main {
         case .some(.clouds):
-            dayThreeCondition.image = UIImage(named: "PartlySunny")
+            dayThreeCondition.image = Styling.cloudy.forecastIcon
         case .none:
-            dayThreeCondition.image = UIImage(named: "Clear")
+            dayThreeCondition.image = Styling.others.forecastIcon
         case .some(.rain):
-            dayThreeCondition.image = UIImage(named: "Rain")
+            dayThreeCondition.image = Styling.rainy.forecastIcon
         case .some(.clear):
-            dayThreeCondition.image = UIImage(named: "Clear")
+            dayThreeCondition.image = Styling.sunny.forecastIcon
         }
 
         switch forecastData?.list[25].weather[0].main {
         case .some(.clouds):
-            dayFourCondition.image = UIImage(named: "PartlySunny")
+            dayFourCondition.image = Styling.cloudy.forecastIcon
         case .none:
-            dayFourCondition.image = UIImage(named: "Clear")
+            dayFourCondition.image = Styling.others.forecastIcon
         case .some(.rain):
-            dayFourCondition.image = UIImage(named: "Rain")
+            dayFourCondition.image = Styling.rainy.forecastIcon
         case .some(.clear):
-            dayFourCondition.image = UIImage(named: "Clear")
+            dayFourCondition.image = Styling.sunny.forecastIcon
         }
 
         switch forecastData?.list[33].weather[0].main {
         case .some(.clouds):
-            dayFiveCondition.image = UIImage(named: "PartlySunny")
+            dayFiveCondition.image = Styling.cloudy.forecastIcon
         case .none:
-            dayFiveCondition.image = UIImage(named: "Clear")
+            dayFiveCondition.image = Styling.others.forecastIcon
         case .some(.rain):
-            dayFiveCondition.image = UIImage(named: "Rain")
+            dayFiveCondition.image = Styling.rainy.forecastIcon
         case .some(.clear):
-            dayFiveCondition.image = UIImage(named: "Clear")
+            dayFiveCondition.image = Styling.sunny.forecastIcon
         }
     }
 }

@@ -44,7 +44,7 @@ enum Styling {
         case .rainy:
             return UIImage(named: "Rain")!
         case .cloudy:
-            return UIImage(named: "Partlysunny")!
+            return UIImage(named: "PartlySunny")!
         case .sunny:
             return UIImage(named: "Clear")!
         case .others:
