@@ -15,10 +15,15 @@ class CurrentWeatherViewModel {
     
      weak var delegate: CurrentDataDelegate?
     
-    private let urlString: String = "\(Link.currentLink)\(Cities.location)\(API.id)\(API.lock)\(Units.id)\(Units.celcius)"
+    private let urlString: String = "\(Link.currentLink)\(API.id)\(API.lock)\(Units.id)\(Units.celcius)\(Cities.id)\(Cities.location)"
     
     public lazy var currentWeatherResource: CurrentWeatherProtocol = CurrentWeatherResource(urlString: urlString)
     private var currentWeather: CurrentWeatherModel?
+
+    func getCityName(cityName: String) {
+        let urlString = "\(Link.currentLink)\(API.id)\(API.lock)\(Units.id)\(Units.celcius)\(Cities.id)\(cityName)"
+        currentWeatherResource = CurrentWeatherResource(urlString: urlString)
+    }
     
     func receiveData() {
         currentWeatherResource.getCurrentWeatherData { [weak self] result in

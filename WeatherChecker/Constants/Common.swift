@@ -8,16 +8,17 @@
 import UIKit
 
 struct API {
-    static let lock: String = "APIKEY GOES HERE"
-    static let id: String = "&appid="
+    static let lock: String = "36b6c4caa08709f7f23c1fe27f297978"//"APIKEY GOES HERE"
+    static let id: String = "appid="
 }
 
 struct Link{
-    static let currentLink: String = "https://api.openweathermap.org/data/2.5/weather?q="
-    static let forecastLink: String = "https://api.openweathermap.org/data/2.5/forecast?q="
+    static let currentLink: String = "https://api.openweathermap.org/data/2.5/weather?"
+    static let forecastLink: String = "https://api.openweathermap.org/data/2.5/forecast?"
 }
 
 struct Cities {
+    static let id: String = "&q="
     static let location: String = "asaba"
     static let location1: String = "abuja"
     static let location2: String = "calabar"

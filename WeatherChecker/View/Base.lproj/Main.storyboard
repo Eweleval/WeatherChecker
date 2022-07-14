@@ -213,16 +213,24 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wzO-SU-AnC">
+                                <rect key="frame" x="24" y="44" width="366" height="34"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.29165488480000001" green="0.56565648319999995" blue="0.88545054199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wzO-SU-AnC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="1yG-9d-Xm3"/>
                             <constraint firstItem="n8G-b0-N5g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="22e-Ho-F5d"/>
                             <constraint firstItem="n8G-b0-N5g" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="150" id="4xX-Qc-L84"/>
                             <constraint firstAttribute="trailing" secondItem="4pI-9F-fLj" secondAttribute="trailing" constant="22" id="6hM-aq-1Tg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FaB-oc-0pm" secondAttribute="trailing" id="7wv-pR-ORz"/>
                             <constraint firstItem="dTG-eL-XnF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="85a-Bc-Ths"/>
                             <constraint firstItem="scf-cK-nHG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="22" id="Ajj-hj-cmK"/>
+                            <constraint firstItem="wzO-SU-AnC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="BEU-Sf-ljP"/>
                             <constraint firstItem="n8G-b0-N5g" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BlU-2y-nF9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="n8G-b0-N5g" secondAttribute="trailing" constant="100" id="Cjo-Mo-YgN"/>
                             <constraint firstItem="DGg-IO-IG0" firstAttribute="top" secondItem="FaB-oc-0pm" secondAttribute="bottom" constant="12" id="Imw-hP-y3f"/>
@@ -231,6 +239,8 @@
                             <constraint firstAttribute="trailing" secondItem="dTG-eL-XnF" secondAttribute="trailing" id="OXs-uv-GIp"/>
                             <constraint firstItem="s3M-7j-55S" firstAttribute="top" secondItem="dTG-eL-XnF" secondAttribute="bottom" constant="16" id="PIB-m4-u94"/>
                             <constraint firstItem="scf-cK-nHG" firstAttribute="top" secondItem="FaB-oc-0pm" secondAttribute="bottom" constant="16" id="TMU-cb-c3b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wzO-SU-AnC" secondAttribute="trailing" constant="24" id="ZoA-cZ-ALu"/>
+                            <constraint firstItem="wzO-SU-AnC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cmj-v0-s70"/>
                             <constraint firstAttribute="right" secondItem="s3M-7j-55S" secondAttribute="right" id="dcI-He-gZo"/>
                             <constraint firstItem="4pI-9F-fLj" firstAttribute="top" secondItem="FaB-oc-0pm" secondAttribute="bottom" constant="16" id="hf1-pS-unh"/>
                             <constraint firstItem="FaB-oc-0pm" firstAttribute="top" secondItem="s3M-7j-55S" secondAttribute="bottom" constant="8" id="jJ4-Sb-3bs"/>
@@ -260,6 +270,7 @@
                         <outlet property="dayTwoTemp" destination="0RG-ZV-9C5" id="AA4-pD-3bw"/>
                         <outlet property="maximumTemp" destination="D0o-TB-7Ea" id="QOE-WE-TYt"/>
                         <outlet property="minimumTemp" destination="Wji-L4-rsg" id="AcX-dh-Niy"/>
+                        <outlet property="searchField" destination="wzO-SU-AnC" id="xt7-qq-dZk"/>
                         <outlet property="temperature" destination="mp7-4e-Zbk" id="cgt-DZ-kpS"/>
                     </connections>
                 </viewController>

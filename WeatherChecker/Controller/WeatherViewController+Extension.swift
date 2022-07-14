@@ -11,7 +11,7 @@ import UIKit
 extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
     func receiveData(_ data: CurrentWeatherModel) {
         self.currentData = data
-
+        
         currentTemp.text = "\(Int(currentData?.main.temp ?? 0.0))°"
         condition.text = currentData?.weather[0].main
         minimumTemp.text = "\(Int(currentData?.main.tempMin ?? 0.0))°"
@@ -38,19 +38,19 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
     func receiveData(_ data: ForecastWeatherModel) {
         self.forecastData = data
 
-        dayOne.text = DateFormatting.shared.convertDate(forecastData?.list[1].date)
-        dayTwo.text = DateFormatting.shared.convertDate(forecastData?.list[9].date)
-        dayThree.text = DateFormatting.shared.convertDate(forecastData?.list[17].date)
-        dayFour.text = DateFormatting.shared.convertDate(forecastData?.list[25].date)
-        dayFive.text = DateFormatting.shared.convertDate(forecastData?.list[33].date)
+        dayOne.text = DateFormatting.shared.convertDate(forecastData?.list[7].date)
+        dayTwo.text = DateFormatting.shared.convertDate(forecastData?.list[15].date)
+        dayThree.text = DateFormatting.shared.convertDate(forecastData?.list[23].date)
+        dayFour.text = DateFormatting.shared.convertDate(forecastData?.list[31].date)
+        dayFive.text = DateFormatting.shared.convertDate(forecastData?.list[39].date)
 
-        dayOneTemp.text = "\(Int(forecastData?.list[1].main.temp ?? 0.0))°"
-        dayTwoTemp.text = "\(Int(forecastData?.list[9].main.temp ?? 0.0))°"
-        dayThreeTemp.text = "\(Int(forecastData?.list[17].main.temp ?? 0.0))°"
-        dayFourTemp.text = "\(Int(forecastData?.list[25].main.temp ?? 0.0))°"
-        dayFiveTemp.text = "\(Int(forecastData?.list[33].main.temp ?? 0.0))°"
+        dayOneTemp.text = "\(Int(forecastData?.list[7].main.temp ?? 0.0))°"
+        dayTwoTemp.text = "\(Int(forecastData?.list[15].main.temp ?? 0.0))°"
+        dayThreeTemp.text = "\(Int(forecastData?.list[23].main.temp ?? 0.0))°"
+        dayFourTemp.text = "\(Int(forecastData?.list[31].main.temp ?? 0.0))°"
+        dayFiveTemp.text = "\(Int(forecastData?.list[39].main.temp ?? 0.0))°"
         
-        switch forecastData?.list[1].weather[0].main {
+        switch forecastData?.list[7].weather[0].main {
         case .some(.clouds):
             dayOneCondition.image = Styling.cloudy.forecastIcon
         case .none:
@@ -61,7 +61,7 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
             dayOneCondition.image = Styling.sunny.forecastIcon
         }
 
-        switch forecastData?.list[9].weather[0].main {
+        switch forecastData?.list[15].weather[0].main {
         case .some(.clouds):
             dayTwoCondition.image = Styling.cloudy.forecastIcon
         case .none:
@@ -72,7 +72,7 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
             dayTwoCondition.image = Styling.sunny.forecastIcon
         }
 
-        switch forecastData?.list[17].weather[0].main {
+        switch forecastData?.list[23].weather[0].main {
         case .some(.clouds):
             dayThreeCondition.image = Styling.cloudy.forecastIcon
         case .none:
@@ -83,7 +83,7 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
             dayThreeCondition.image = Styling.sunny.forecastIcon
         }
 
-        switch forecastData?.list[25].weather[0].main {
+        switch forecastData?.list[31].weather[0].main {
         case .some(.clouds):
             dayFourCondition.image = Styling.cloudy.forecastIcon
         case .none:
@@ -94,7 +94,7 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
             dayFourCondition.image = Styling.sunny.forecastIcon
         }
 
-        switch forecastData?.list[33].weather[0].main {
+        switch forecastData?.list[39].weather[0].main {
         case .some(.clouds):
             dayFiveCondition.image = Styling.cloudy.forecastIcon
         case .none:
@@ -104,5 +104,34 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
         case .some(.clear):
             dayFiveCondition.image = Styling.sunny.forecastIcon
         }
+    }
+}
+
+extension WeatherViewController: UITextFieldDelegate{
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchField.endEditing(true)
+        return true
+    }
+
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        if textField.text != "" {
+            return true
+        } else {
+            textField.placeholder = "Fill a city name here."
+            return false
+        }
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if let city = searchField.text {
+            currentModel.getCityName(cityName: city)
+            forecastModel.getCityName(cityName: city)
+        }
+        DispatchQueue.main.async {
+            self.currentModel.receiveData()
+            self.forecastModel.receiveData()
+        }
+        searchField.text = ""
     }
 }

@@ -40,7 +40,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dayFourCondition: UIImageView!
     @IBOutlet weak var dayFiveCondition: UIImageView!
     
-
+    @IBOutlet weak var searchField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,6 +49,7 @@ class WeatherViewController: UIViewController {
         currentModel.receiveData()
         forecastModel.delegate = self
         forecastModel.receiveData()
+        searchField.delegate = self
     }
 
 
