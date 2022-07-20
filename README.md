@@ -1,3 +1,3 @@
 # WeatherChecker
 
-#### A simple weather checker appliction built with storyboard and MVVM architecture.
+#### A simple weather checker application built with storyboard, core location and MVVM architecture.
