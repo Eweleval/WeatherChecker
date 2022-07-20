@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
     func receiveData(_ data: CurrentWeatherModel) {
@@ -17,6 +18,7 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
         minimumTemp.text = "\(Int(currentData?.main.tempMin ?? 0.0))°"
         temperature.text = "\(Int(currentData?.main.temp ?? 0.0))°"
         maximumTemp.text = "\(Int(currentData?.main.tempMax ?? 0.0))°"
+        cityName.text = currentData?.name
 
         switch currentData?.weather[0].main {
         case "Clouds":
@@ -105,24 +107,30 @@ extension WeatherViewController: CurrentDataDelegate, ForecastDataDelegate {
             dayFiveCondition.image = Styling.sunny.forecastIcon
         }
     }
+
+    @IBAction func locationPressed(_ sender: UIButton) {
+        locationManager.requestLocation()
+    }
 }
 
+// MARK: - UI Textfield Delegate
 extension WeatherViewController: UITextFieldDelegate{
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchField.endEditing(true)
         return true
     }
-
+    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         if textField.text != "" {
+            textField.placeholder = "Search"
             return true
         } else {
             textField.placeholder = "Fill a city name here."
             return false
         }
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let city = searchField.text {
             currentModel.getCityName(cityName: city)
@@ -133,5 +141,26 @@ extension WeatherViewController: UITextFieldDelegate{
             self.forecastModel.receiveData()
         }
         searchField.text = ""
+    }
+}
+
+// MARK: - Core Location Manager Delegate
+extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last{
+            locationManager.stopUpdatingLocation()
+            let lat  = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            currentModel.getgetLocation(latitude: lat, longitute: lon)
+            forecastModel.getgetLocation(latitude: lat, longitute: lon)
+        }
+        DispatchQueue.main.async {
+            self.currentModel.receiveData()
+            self.forecastModel.receiveData()
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
     }
 }

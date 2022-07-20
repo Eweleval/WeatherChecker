@@ -53,3 +53,10 @@ enum Styling {
     }
 }
 
+extension UIButton {
+    func makeCircular() {
+        self.setTitle("", for: .normal)
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.frame.width / 2
+    }
+}

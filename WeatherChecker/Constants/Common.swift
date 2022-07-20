@@ -19,6 +19,8 @@ struct Link{
 
 struct Cities {
     static let id: String = "&q="
+    static let lat: String = "&lat="
+    static let lon: String = "&lon="
     static let location: String = "asaba"
     static let location1: String = "abuja"
     static let location2: String = "calabar"

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class WeatherViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class WeatherViewController: UIViewController {
     let currentModel = CurrentWeatherViewModel()
     var forecastData: ForecastWeatherModel?
     var currentData: CurrentWeatherModel?
+    var locationManager = CLLocationManager()
 
     // MARK: - CurrentWeather Outlets
     @IBOutlet weak var currentWeatherImage: UIImageView!
@@ -40,18 +42,22 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var dayFourCondition: UIImageView!
     @IBOutlet weak var dayFiveCondition: UIImageView!
     
+    @IBOutlet weak var locationButton: UIButton!
+    @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var searchField: UITextField!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         currentModel.delegate = self
-        currentModel.receiveData()
         forecastModel.delegate = self
-        forecastModel.receiveData()
         searchField.delegate = self
+        locationManager.delegate = self
+        locationButton.makeCircular()
+
+        forecastModel.receiveData()
+        currentModel.receiveData()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation() 
     }
-
-
 }
-

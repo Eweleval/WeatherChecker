@@ -11,6 +11,7 @@ import Foundation
 struct CurrentWeatherModel: Codable {
     let weather: [CurrentWeather]
     let main: CurrentMain
+    let name: String 
     
 }
 
