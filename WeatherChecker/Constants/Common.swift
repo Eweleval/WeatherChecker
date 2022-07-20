@@ -8,7 +8,7 @@
 import UIKit
 
 struct API {
-    static let lock: String = "36b6c4caa08709f7f23c1fe27f297978"//"APIKEY GOES HERE"
+    static let lock: String = "APIKEY GOES HERE"
     static let id: String = "appid="
 }
 
